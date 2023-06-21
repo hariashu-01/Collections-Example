@@ -1,0 +1,33 @@
+//SEt syntax
+
+set <String> li = new set<String>{'one','two','three','four','five','three'};
+System.debug(li);
+
+//Remove
+li.remove('four');
+system.debug(li);
+
+//Add the set
+
+li.add('six');
+system.debug(li);
+
+//Add list to the set
+
+list<string> si = new list<string> {'1','2','3','4','5'};
+System.debug(si);
+li.addAll(si);
+system.debug(li);
+
+//string to integer
+
+set <String> li = new set<String>{'one','two','three','four','five','three'};
+System.debug(li);
+
+list<integer> si = new list<integer> {1,2,3,4,5};
+System.debug(si);
+
+string newint = String.valueof(si);
+li.add(newint);
+system.debug(li);
+
