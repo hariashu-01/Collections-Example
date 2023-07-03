@@ -1,0 +1,17 @@
+//insert an account
+
+list<Account> acc = new list <Account>();
+Account acc1 = new account(Name = 'Test 1',Phone='12345');
+Account acc2 = new account(Name = 'Test 2',Phone='12345');
+acc.add(acc1);
+acc.add(acc2);
+insert acc;
+
+//insert an account with contact
+
+Account acc = new account(Name='test 4',Phone='12234');
+insert acc;
+
+Contact con = new Contact(LastName = 'Hari',AccountId =acc.id);
+insert con;
+
