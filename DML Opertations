@@ -6,7 +6,7 @@ Account acc2 = new account(Name = 'Test 2',Phone='12345');
 acc.add(acc1);
 acc.add(acc2);
 insert acc;
-
+-----------------------------------------------------------------------
 //insert an account with contact
 
 Account acc = new account(Name='test 4',Phone='12234');
@@ -14,4 +14,43 @@ insert acc;
 
 Contact con = new Contact(LastName = 'Hari',AccountId =acc.id);
 insert con;
+=----------------------------------------------------------------------
+//Update an specific account phone number
+
+Account acc = [select Name,Id from Account where Name ='Test 4'];
+System.debug(acc);
+acc.Phone='00000';
+update acc;
+---------------------------------------------------------------------------
+//Upsert
+
+list<Account> acc = new list <Account>();
+Account acc1 = new account(Name = 'Test 10',Phone='12345');
+Account acc2 = [select Name,Id from Account where Name ='Test 4'];
+acc2.Phone='111111';
+acc.add(acc1);
+acc.add(acc2);
+upsert acc;
+---------------------------------------------------------------------------
+//Merge
+
+Account masteracc= [select Name,Id from Account where Name ='Test 4'];
+Account mergeacc= [select Name,Id from Account where Name ='Test 5'];
+merge masteracc mergeacc;
+* it merge the account of releated contacts with master account and delete the merge account*
+-----------------------------------------------------------------------------
+//Delete an Record
+
+List<Account> acc=[select Id,Name,Phone from Account Where Name like '%Test%'];
+delete acc;
+------------------------------------------------------------------------------
+//Undelete an Record
+
+List<Account> acc=[select Id,Name,Phone from Account Where Name like '%Test%' ALL ROWS];
+undelete acc;
+-------------------------------------------------------------------------------
+    
+
+
+
 
