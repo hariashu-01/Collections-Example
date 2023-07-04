@@ -1,0 +1,17 @@
+//Insert an account releated contact record.
+
+Account acc= new Account(Name = 'Hari', Phone = '112344');
+insert acc;
+
+Contact con = new Contact (Account.id = acc.id , Name = 'Ashwin', Phone = '1234');
+insert con;
+-----------------------------------------------------------------------------------
+// Update an account releated contact record
+
+Contact con = [Select Id, Name , Phone , Account.Phone from Contact where Name = 'Hari'];
+con.Phone = '11111';
+con.Account.Phone='11';
+
+Update con;
+update con.Account;
+--------------------------------------------------------------------------------------
