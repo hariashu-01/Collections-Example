@@ -1,0 +1,22 @@
+//Create a Contact on existing Account Record using SOQL, List in Apex
+
+public class acc {
+    public static void accdemo() {
+        List<Account> acc = [SELECT Id, Name, Phone FROM Account WHERE Name like 'Hariharan'];
+        list<Contact> opp = new list <Contact> ();
+       
+        
+            for(Account acc1 : acc){
+                Contact con = new Contact();
+                con.LastName = acc1.Name;
+                con.Phone= acc1.Phone;
+                con.AccountId =acc1.Id;
+                opp.add(con);
+                
+            }
+        insert opp;
+        
+            
+        }
+    }
+
