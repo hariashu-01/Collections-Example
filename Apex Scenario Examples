@@ -20,3 +20,19 @@ public class acc {
         }
     }
 
+---------------------------------------------------------------------------------------------------------
+//Update an existing record phone number 
+
+public class acc {
+    public static void accdemo() {
+        List <Account> a1  =  [SELECT Id, Name, Phone FROM Account WHERE Name like '%test%'];
+        list <Account> a2  =  new list <Account>();
+        for(Account acc1 : a1 ){
+        acc1.Phone='000998876';
+        a2.add(acc1);
+        update a2;
+        }
+        
+    }
+}
+
