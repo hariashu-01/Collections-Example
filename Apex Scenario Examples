@@ -66,4 +66,23 @@ public class Oppupdate {
     }
 }
 ---------------------------------------------------------------------------------------------------------------
+Query an missing phone numbers in contact from related account phone number
+
+public class Oppupdate {
+    public static void acc(){
+        list<Contact> conlist = [select Id,Name,Phone,
+                                 Account.Phone 
+                                 from Contact];
+    
+    for(Contact con:conlist){
+        if(con.Phone== Null){
+            con.Phone= con.Account.Phone;
+        }
+    }
+    update conlist;
+    }
+
+}
+----------------------------------------------------------------------------------------------------------------
+
 
