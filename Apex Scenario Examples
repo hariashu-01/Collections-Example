@@ -36,3 +36,34 @@ public class acc {
     }
 }
 
+-----------------------------------------------------------------------------------------------------------
+ Update Opportunity Description based on Stage using SOQL, List, and Loop in Apex
+
+public class Oppupdate {
+    public static void updateopp(){
+        list<Opportunity> opplist = [select Id,Name,StageName from Opportunity where StageName = 'Closed Won'];
+    
+    
+    for (Opportunity opp : opplist){
+        if(opp.StageName == 'Closed Won'){
+            opp.Description = 'It is closed won list ';
+        }
+        update opp;
+        
+    }
+    }
+}
+--------------------------------------------------------------------------------------------------------------
+Query the total amount of contact/cases/opportunity in accounts list
+
+public class Oppupdate {
+    public static void countlist(){
+        List<Account> acclist = [select Id,Name, (select Id from Cases ) from Account];
+        for (Account acc:acclist){
+            acc.Totaloppcount__c = acc.Cases.size();
+            update acclist;
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------
+
