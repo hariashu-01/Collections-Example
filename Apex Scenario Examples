@@ -1,3 +1,7 @@
+**Note
+Query Custom object __C and custom object have releated standard object means we need to mention Account__r.Phone.
+
+
 //Create a Contact on existing Account Record using SOQL, List in Apex
 
 public class acc {
